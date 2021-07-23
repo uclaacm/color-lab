@@ -1,4 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Reem+Kufi&display=swap');
 
 @font-face {
   font-family: 'Westwood Sans';
@@ -6,8 +7,67 @@
     url('../assets/WestwoodSans-Regular.ttf') format('truetype');
 }
 
+$title-font: 'Fredoka One', sans-serif;
+$body-font: 'Reem Kufi', sans-serif;
+
 body {
-  font-family: 'Poppins', 'Helvetica Neue', 'Helvetica', sans-serif;
+  // font-size: 15vw;
+  font-family: $body-font;
   margin: 0;
+}
+
+h1 {
+  margin: 0;
+}
+
+.frame {
+  display: grid;
+  grid-template-columns: 30% auto;
+  min-height: 100vh;
+}
+
+.image {
+  background-image: url('../assets/background.png');
+}
+
+.level-select-button {
+  color: white;
+  font-size: 7px;
+  padding: 0 10px;
+  text-decoration: none;
+}
+
+.sidebar {
+  align-items: center;
+  background-image: url('../assets/sidebar_bg.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: white;
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: space-between;
+  padding: 3vw;
   text-align: center;
+}
+
+.sidebar-title {
+  font-family: $title-font;
+  font-size: calc(18px + 1vw);
+}
+
+.level-select {
+  font-size: calc(5px + 0.5vw);
+  padding: 0.75vw 0;
+}
+
+.next {
+  background-color: white;
+  border-radius: 3vw;
+  color: black;
+  font-family: $title-font;
+  font-size: calc(10px + 0.5vw);
+  mix-blend-mode: screen;
+  padding: 0.4vw 2vw;
+  text-decoration: none;
+  width: fit-content;
 }
