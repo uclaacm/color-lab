@@ -22,7 +22,7 @@ h1 {
 
 .frame {
   display: grid;
-  grid-template-columns: 30% auto;
+  grid-template-columns: 32% auto;
   min-height: 100vh;
 }
 
@@ -57,7 +57,7 @@ h1 {
 
 .level-select {
   font-size: calc(5px + 0.5vw);
-  padding: 0.75vw 0;
+  margin-top: 0.75vw;
 }
 
 .next {
