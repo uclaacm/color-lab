@@ -1,38 +1,42 @@
 @import 'global';
 
-#landing-title {
+#ending-title {
   color: white;
   font-family: $title-font;
-  font-size: 15vw;
+  font-size: 5vw;
+  margin-bottom: 1.5vw;
 }
 
-#landing {
+#ending {
   align-items: center;
   background-image: url('../assets/BG.jpg');
   background-repeat: no-repeat;
   background-size: cover;
-  display: flex;
+  display: grid;
+  gap: 5vw;
+  grid-template-columns: 40% auto;
   height: 100vh;
-  justify-content: center;
+  justify-content: space-evenly;
+  padding: 0 5vw;
   text-align: center;
 }
 
-.landing-button {
+.ending-button {
   border: solid 2px white;
   border-radius: 3vw;
   font-family: $title-font;
-  font-size: calc(10px + 1vw);
-  padding: 0.4vw 3.5vw;
+  font-size: calc(8px + 1vw);
+  padding: 0.5vw 2vw;
   text-decoration: none;
   width: fit-content;
 }
 
-.landing-button:hover {
+.ending-button:hover {
   cursor: pointer;
   // box-shadow: 5px 5px 13px -3px #000000;
 }
 
-#landing-button-container {
+#ending-button-container {
   align-items: center;
   display: flex;
   flex-flow: row wrap;
@@ -42,42 +46,20 @@
   padding: 1vw 0 5vw;
 }
 
-#landing-start {
+#ending-playagain {
   background-color: white;
   color: black;
   mix-blend-mode: screen;
 }
 
-#landing-instructions {
+#ending-save {
   background-color: transparent;
   color: white;
 }
 
-// Footer
-//=======================================
-#footer {
-  align-items: center;
-  bottom: 0;
-  color: white;
-  display: flex;
-  font-family: 'Westwood Sans','Helvetica Neue', 'Helvetica', sans-serif;
-  justify-content: center;
-  letter-spacing: 0.08em;
-  position: fixed;
+#ending-image {
+  background-color: white;
+  border-radius: 20px;
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.15);
   width: 100%;
-}
-
-#footer h3 {
-  margin: 0;
-}
-
-#footer-link {
-  color: white;
-  text-decoration: none;
-}
-
-#tla-logo {
-  height: 1.66em;
-  margin: 0 2px 0 5px;
-  vertical-align: -0.5em;
 }

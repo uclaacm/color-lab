@@ -1,5 +1,7 @@
 import '../assets/WestwoodSans-Regular.ttf';
 import '../styles/landing.scss';
+import '../styles/ending.scss';
+import {useState} from 'react';
 
 import {
   BrowserRouter as
@@ -8,6 +10,8 @@ import {
   Route,
   Link,
   useLocation }from 'react-router-dom';
+import ColoringPage from '../assets/background.png';
+import TeachLALogo from '../assets/teach-la-logo.svg';
 
 
 const pages = ['/','/level1','/level2','/level3','/level4','/level5','/level6','/level7','/level8', '/level9', '/level10', '/ending'];
@@ -37,14 +41,21 @@ const content = [
 ];
 
 function App(): JSX.Element {
+
+  const [modalShow, setModalShow] = useState(false);
+
   return (
     <div>
-      {/* <Landing></Landing> */}
       <Router>
+        {modalShow && <Modal
+          show={setModalShow}
+        ></Modal>}
         <div>
           <Switch>
             <Route exact path="/">
-              <Landing></Landing>
+              <Landing
+                show={setModalShow}
+              ></Landing>
             </Route>
             <Route exact path="/ending">
               <Ending></Ending>
@@ -58,6 +69,22 @@ function App(): JSX.Element {
     </div>
 
 
+  );
+}
+
+function Modal(props: any) {
+  return(
+    <div id="modal">
+      <div id="modal-overlay" onClick={() => props.show(false)}>
+      </div>
+      <div id="modal-container">
+        <div id="modal-content">
+          <h2 id="modal-title">instructions</h2>
+          <p id="modal-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris lacinia lectus eget finibus imperdiet. In odio magna, aliquet vel efficitur iaculis, lobortis at nisi. Suspendisse fermentum libero elit, id facilisis felis convallis in. Donec augue justo, eleifend ut tempus non, volutpat ac neque. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam vehicula ut sem eget posuere. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris lacinia lectus eget finibus imperdiet. In odio magna, aliquet vel efficitur iaculis, lobortis at nisi. Suspendisse fermentum libero elit, id facilisis felis convallis in. Donec augue justo, eleifend ut tempus non, volutpat ac neque. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam vehicula ut sem eget posuere. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris lacinia lectus eget finibus imperdiet. In odio magna, aliquet vel efficitur iaculis, lobortis at nisi. Suspendisse fermentum libero elit, id facilisis felis convallis in. </p>
+        </div>
+      </div>
+
+    </div>
   );
 }
 
@@ -85,20 +112,25 @@ function Sidebar() {
   );
 }
 
-// function swatch() {
-//   return(
-//     <div className="swatch">
-//       <div className="swatch-color"></div>
-//       <div className="swatch-hex"></div>
-//       <div className="swatch-rgb"></div>
-//     </div>
-//   );
-// }
+function Swatch(props: { rgb: string, hex: string; }) {
+  return(
+    <div className="swatch">
+      <div className="swatch-color" style={{ backgroundColor: props.rgb}}></div>
+      <div className="swatch-labels">
+        <div className="swatch-hex">{props.hex}</div>
+        <div className="swatch-rgb">{props.rgb}</div>
+      </div>
+    </div>
+  );
+}
 
 function One() {
   return(
     <div id="level-one" className="level">
-      1
+      <div className="swatches">
+        <Swatch rgb="rgb(0, 35, 80)" hex="#0085FF"></Swatch>
+        <Swatch rgb="" hex=""></Swatch>
+      </div>
     </div>
   );
 }
@@ -180,30 +212,45 @@ function Level() {
   );
 }
 
-function Landing() {
+function Landing(props: any) {
   return(
     <div id="landing">
       <div id="landing-container">
         <div id="landing-title">COLOR LAB</div>
         <div id="landing-button-container">
           <Link to="/level1" className="landing-button" id="landing-start">start</Link>
-          <button className="landing-button" id="landing-instructions">instructions</button>
+          <button className="landing-button" id="landing-instructions"
+            onClick={() => props.show(true)}
+          >instructions</button>
         </div>
       </div>
+      <h3 id="footer">
+      made with ❤️ by
+        <a
+          href="https://teachla.uclaacm.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          id="footer-link"
+        >
+          <img id="tla-logo" src={TeachLALogo} alt="teach la logo!" />
+          acm.teachLA
+        </a>
+      </h3>
     </div>
   );
 }
 
 function Ending() {
   return(
-    <div id="landing">
-      <div id="landing-container">
-        <div id="landing-title">END</div>
-        <div id="landing-button-container">
-          <Link to="/level1" className="landing-button" id="landing-start">start</Link>
-          <button className="landing-button" id="landing-instructions">instructions</button>
+    <div id="ending">
+      <div id="ending-container">
+        <div id="ending-title">you did it!</div>
+        <div id="ending-button-container">
+          <Link to="/" className="ending-button" id="ending-playagain">play again</Link>
+          <a href={ColoringPage} download="Color Lab Art" className="ending-button" id="ending-save">save your artwork</a>
         </div>
       </div>
+      <img id="ending-image" src={ColoringPage} alt="completed coloring page"></img>
     </div>
   );
 }
