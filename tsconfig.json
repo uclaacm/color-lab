@@ -23,5 +23,5 @@
       "./custom_typing"
     ]
   },
-  "include": ["**/*.ts", "**/*.tsx"]
+  "include": ["**/*.ts", "**/*.tsx", "src/components/SidebarContent/index.js"]
 }
