@@ -1,37 +1,50 @@
-import '../assets/WestwoodSans-Regular.ttf';
-import '../styles/landing.scss';
-import '../styles/swatch.scss';
-import '../styles/sidebar.scss';
-import '../styles/modal.scss';
-import '../styles/scrollbar.scss';
-import '../styles/ending.scss';
+import "../assets/WestwoodSans-Regular.ttf";
+import "../styles/landing.scss";
+import "../styles/swatch.scss";
+import "../styles/sidebar.scss";
+import "../styles/modal.scss";
+import "../styles/scrollbar.scss";
+import "../styles/ending.scss";
 
+import ColorSlider from "./ColorSlider";
 
-import {useState} from 'react';
+import { useState } from "react";
 
 import {
-  BrowserRouter as
-  Router,
+  BrowserRouter as Router,
   Switch,
   Route,
   Link,
-  useLocation }from 'react-router-dom';
-import ColoringPage from '../assets/background.png';
-import TeachLALogo from '../assets/teach-la-logo.svg';
+  useLocation,
+} from "react-router-dom";
+import ColoringPage from "../assets/background.png";
+import TeachLALogo from "../assets/teach-la-logo.svg";
 
-
-const pages = ['/','/level1','/level2','/level3','/level4','/level5','/level6','/level7','/level8', '/level9', '/level10', '/ending'];
+const pages = [
+  "/",
+  "/level1",
+  "/level2",
+  "/level3",
+  "/level4",
+  "/level5",
+  "/level6",
+  "/level7",
+  "/level8",
+  "/level9",
+  "/level10",
+  "/ending",
+];
 const titles = [
-  'match the color',
-  'match another one',
-  'try it blind?',
-  'one more time',
-  'let\'s switch it up',
-  'a little different...',
+  "match the color",
+  "match another one",
+  "try it blind?",
+  "one more time",
+  "let's switch it up",
+  "a little different...",
   'a "bit" harder',
-  'a real challenge',
-  'another round',
-  'home stretch!',
+  "a real challenge",
+  "another round",
+  "home stretch!",
 ];
 const content = [
   <One key="1"></One>,
@@ -47,7 +60,6 @@ const content = [
 ];
 
 function App(): JSX.Element {
-
   const [modalShow, setModalShow] = useState(false);
   // const [myR, setR] = useState(0);
   // const [myG, setG] = useState(0);
@@ -56,15 +68,11 @@ function App(): JSX.Element {
   return (
     <div>
       <Router>
-        {modalShow && <Modal
-          show={setModalShow}
-        ></Modal>}
+        {modalShow && <Modal show={setModalShow}></Modal>}
         <div>
           <Switch>
             <Route exact path="/">
-              <Landing
-                show={setModalShow}
-              ></Landing>
+              <Landing show={setModalShow}></Landing>
             </Route>
             <Route exact path="/ending">
               <Ending></Ending>
@@ -76,67 +84,90 @@ function App(): JSX.Element {
         </div>
       </Router>
     </div>
-
-
   );
 }
-
 
 // interface ModalProps{
 //   show: React.SetStateAction<boolean>
 // }
 function Modal(props: any) {
-  return(
+  return (
     <div id="modal">
-      <div id="modal-overlay" onClick={() => props.show(false)}>
-      </div>
+      <div id="modal-overlay" onClick={() => props.show(false)}></div>
       <div id="modal-container">
         <div id="modal-content">
           <h2 id="modal-title">instructions</h2>
-          <p id="modal-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris lacinia lectus eget finibus imperdiet. In odio magna, aliquet vel efficitur iaculis, lobortis at nisi. Suspendisse fermentum libero elit, id facilisis felis convallis in. Donec augue justo, eleifend ut tempus non, volutpat ac neque. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam vehicula ut sem eget posuere. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris lacinia lectus eget finibus imperdiet. In odio magna, aliquet vel efficitur iaculis, lobortis at nisi. Suspendisse fermentum libero elit, id facilisis felis convallis in. Donec augue justo, eleifend ut tempus non, volutpat ac neque. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam vehicula ut sem eget posuere. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris lacinia lectus eget finibus imperdiet. In odio magna, aliquet vel efficitur iaculis, lobortis at nisi. Suspendisse fermentum libero elit, id facilisis felis convallis in. </p>
+          <p id="modal-text">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris
+            lacinia lectus eget finibus imperdiet. In odio magna, aliquet vel
+            efficitur iaculis, lobortis at nisi. Suspendisse fermentum libero
+            elit, id facilisis felis convallis in. Donec augue justo, eleifend
+            ut tempus non, volutpat ac neque. Orci varius natoque penatibus et
+            magnis dis parturient montes, nascetur ridiculus mus. Nam vehicula
+            ut sem eget posuere. Lorem ipsum dolor sit amet, consectetur
+            adipiscing elit. Mauris lacinia lectus eget finibus imperdiet. In
+            odio magna, aliquet vel efficitur iaculis, lobortis at nisi.
+            Suspendisse fermentum libero elit, id facilisis felis convallis in.
+            Donec augue justo, eleifend ut tempus non, volutpat ac neque. Orci
+            varius natoque penatibus et magnis dis parturient montes, nascetur
+            ridiculus mus. Nam vehicula ut sem eget posuere. Lorem ipsum dolor
+            sit amet, consectetur adipiscing elit. Mauris lacinia lectus eget
+            finibus imperdiet. In odio magna, aliquet vel efficitur iaculis,
+            lobortis at nisi. Suspendisse fermentum libero elit, id facilisis
+            felis convallis in.{" "}
+          </p>
         </div>
       </div>
-
     </div>
   );
 }
 
 function Sidebar() {
-
   const location = useLocation();
   const current = location.pathname;
   const currPage = pages.indexOf(current);
 
-  return(
+  return (
     <div className="sidebar">
       <div className="sidebar-header">
-        <div className="sidebar-title">{titles[currPage-1]}</div>
+        <div className="sidebar-title">{titles[currPage - 1]}</div>
         <div className="level-select">
-          {currPage !== 1 && <Link to={pages[currPage-1]} className="level-select-button">&#9664;</Link>}
-        level {pages.indexOf(current)} of {pages.length-2}
-          {currPage !== 10 && <Link to={pages[currPage+1]} className="level-select-button">&#9654;</Link>}
+          {currPage !== 1 && (
+            <Link to={pages[currPage - 1]} className="level-select-button">
+              &#9664;
+            </Link>
+          )}
+          level {pages.indexOf(current)} of {pages.length - 2}
+          {currPage !== 10 && (
+            <Link to={pages[currPage + 1]} className="level-select-button">
+              &#9654;
+            </Link>
+          )}
         </div>
       </div>
-      <div className="level-content">
-        {content[currPage-1]}
-      </div>
-      <Link to={pages[currPage+1]} className="next">next</Link>
+      <div className="level-content">{content[currPage - 1]}</div>
+      <Link to={pages[currPage + 1]} className="next">
+        next
+      </Link>
     </div>
   );
 }
 
 function componentToHex(c: number) {
   const hex = c.toString(16);
-  return hex.length == 1 ? '0' + hex : hex;
+  return hex.length == 1 ? "0" + hex : hex;
 }
 
-
-function Swatch(props: { r: number, g:number, b:number }) {
-  const rgb = 'rgb('+props.r+', '+props.g+', '+props.b+') ';
-  const hex = '#' + componentToHex(props.r) + componentToHex(props.g) + componentToHex(props.b);
-  return(
+function Swatch(props: { r: number; g: number; b: number }) {
+  const rgb = "rgb(" + props.r + ", " + props.g + ", " + props.b + ") ";
+  const hex =
+    "#" +
+    componentToHex(props.r) +
+    componentToHex(props.g) +
+    componentToHex(props.b);
+  return (
     <div className="swatch">
-      <div className="swatch-color" style={{ backgroundColor: rgb}}></div>
+      <div className="swatch-color" style={{ backgroundColor: rgb }}></div>
       <div className="swatch-labels">
         <div className="swatch-hex">{hex}</div>
         <div className="swatch-rgb">{rgb}</div>
@@ -147,14 +178,25 @@ function Swatch(props: { r: number, g:number, b:number }) {
 
 function One() {
   // const [rangeval, setRangeval] = useState(null);
+  const [red, setRed] = useState(0);
+  const [blue, setBlue] = useState(0);
+  const [green, setGreen] = useState(0);
 
-  return(
+  return (
     <div id="level-one" className="level">
       <div className="swatches">
-        <Swatch r={0} g={35} b={80}></Swatch>
-        <Swatch r={0} g={35} b={80}></Swatch>
+        <Swatch r={0} g={9} b={35}></Swatch>
+        <Swatch r={red} g={green} b={blue}></Swatch>
       </div>
       <div className="sliders">
+        <ColorSlider
+          red={red}
+          setRed={setRed}
+          green={green}
+          setGreen={setGreen}
+          blue={blue}
+          setBlue={setBlue}
+        />
         {/* <input className="slider" type="range" min="1" max="255" defaultValue={Math.floor(Math.random()*(256))}
         onChange={(event) => setRangeval({event.target.value})}></input> */}
         {/* <input type="range" className="custom-range" min="199" max="3999"
@@ -166,7 +208,7 @@ function One() {
 }
 
 function Two() {
-  return(
+  return (
     <div id="level-two" className="level">
       2
     </div>
@@ -174,7 +216,7 @@ function Two() {
 }
 
 function Three() {
-  return(
+  return (
     <div id="level-three" className="level">
       3
     </div>
@@ -182,7 +224,7 @@ function Three() {
 }
 
 function Four() {
-  return(
+  return (
     <div id="level-four" className="level">
       4
     </div>
@@ -190,35 +232,35 @@ function Four() {
 }
 
 function Five() {
-  return(
+  return (
     <div id="level-five" className="level">
       5
     </div>
   );
 }
 function Six() {
-  return(
+  return (
     <div id="level-six" className="level">
       6
     </div>
   );
 }
 function Seven() {
-  return(
+  return (
     <div id="level-seven" className="level">
       7
     </div>
   );
 }
 function Eight() {
-  return(
+  return (
     <div id="level-eight" className="level">
       8
     </div>
   );
 }
 function Nine() {
-  return(
+  return (
     <div id="level-nine" className="level">
       9
     </div>
@@ -226,7 +268,7 @@ function Nine() {
 }
 
 function Ten() {
-  return(
+  return (
     <div id="level-nine" className="level">
       10
     </div>
@@ -243,19 +285,25 @@ function Level() {
 }
 
 function Landing(props: any) {
-  return(
+  return (
     <div id="landing">
       <div id="landing-container">
         <div id="landing-title">COLOR LAB</div>
         <div id="landing-button-container">
-          <Link to="/level1" className="landing-button" id="landing-start">start</Link>
-          <button className="landing-button" id="landing-instructions"
+          <Link to="/level1" className="landing-button" id="landing-start">
+            start
+          </Link>
+          <button
+            className="landing-button"
+            id="landing-instructions"
             onClick={() => props.show(true)}
-          >instructions</button>
+          >
+            instructions
+          </button>
         </div>
       </div>
       <h3 id="footer">
-      made with ❤️ by
+        made with ❤️ by
         <a
           href="https://teachla.uclaacm.com"
           target="_blank"
@@ -271,16 +319,29 @@ function Landing(props: any) {
 }
 
 function Ending() {
-  return(
+  return (
     <div id="ending">
       <div id="ending-container">
         <div id="ending-title">you did it!</div>
         <div id="ending-button-container">
-          <Link to="/" className="ending-button" id="ending-playagain">play again</Link>
-          <a href={ColoringPage} download="Color Lab Art" className="ending-button" id="ending-save">save your artwork</a>
+          <Link to="/" className="ending-button" id="ending-playagain">
+            play again
+          </Link>
+          <a
+            href={ColoringPage}
+            download="Color Lab Art"
+            className="ending-button"
+            id="ending-save"
+          >
+            save your artwork
+          </a>
         </div>
       </div>
-      <img id="ending-image" src={ColoringPage} alt="completed coloring page"></img>
+      <img
+        id="ending-image"
+        src={ColoringPage}
+        alt="completed coloring page"
+      ></img>
     </div>
   );
 }
