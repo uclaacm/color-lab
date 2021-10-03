@@ -10,7 +10,7 @@ export default function Page1():JSX.Element {
     <div id="level-one" className="level">
       <div className="swatches">
         <Swatch r={0} g={35} b={80}></Swatch>
-        <Swatch r={0} g={35} b={80}></Swatch>
+        <Swatch r={red} g={green} b={blue}></Swatch>
       </div>
       <div className="sliders">
         <ColorSlider
