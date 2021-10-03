@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 
 interface ColorSliderProps {
   setRed: React.Dispatch<React.SetStateAction<number>>;
@@ -8,7 +8,7 @@ interface ColorSliderProps {
   setBlue: React.Dispatch<React.SetStateAction<number>>;
   blue: number;
 }
-export default function ColorSlider(props: ColorSliderProps) {
+export default function ColorSlider(props: ColorSliderProps):JSX.Element {
   return (
     <div>
       <div>Red:</div>
