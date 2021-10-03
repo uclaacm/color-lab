@@ -1,0 +1,24 @@
+@import 'global';
+
+/* width */
+::-webkit-scrollbar {
+  width: 7px;
+}
+  
+/* Track */
+::-webkit-scrollbar-track {
+  background: transparent;
+  margin: 30px; 
+}
+   
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #fd2ea0;
+  border-radius: 15px;
+  height: 80%;
+}
+  
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #eb1d8f; 
+}
