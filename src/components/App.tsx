@@ -1,6 +1,12 @@
 import '../assets/WestwoodSans-Regular.ttf';
 import '../styles/landing.scss';
+import '../styles/swatch.scss';
+import '../styles/sidebar.scss';
+import '../styles/modal.scss';
+import '../styles/scrollbar.scss';
 import '../styles/ending.scss';
+
+
 import {useState} from 'react';
 
 import {
@@ -43,6 +49,9 @@ const content = [
 function App(): JSX.Element {
 
   const [modalShow, setModalShow] = useState(false);
+  // const [myR, setR] = useState(0);
+  // const [myG, setG] = useState(0);
+  // const [myB, setB] = useState(0);
 
   return (
     <div>
@@ -72,6 +81,10 @@ function App(): JSX.Element {
   );
 }
 
+
+// interface ModalProps{
+//   show: React.SetStateAction<boolean>
+// }
 function Modal(props: any) {
   return(
     <div id="modal">
@@ -112,24 +125,41 @@ function Sidebar() {
   );
 }
 
-function Swatch(props: { rgb: string, hex: string; }) {
+function componentToHex(c: number) {
+  const hex = c.toString(16);
+  return hex.length == 1 ? '0' + hex : hex;
+}
+
+
+function Swatch(props: { r: number, g:number, b:number }) {
+  const rgb = 'rgb('+props.r+', '+props.g+', '+props.b+') ';
+  const hex = '#' + componentToHex(props.r) + componentToHex(props.g) + componentToHex(props.b);
   return(
     <div className="swatch">
-      <div className="swatch-color" style={{ backgroundColor: props.rgb}}></div>
+      <div className="swatch-color" style={{ backgroundColor: rgb}}></div>
       <div className="swatch-labels">
-        <div className="swatch-hex">{props.hex}</div>
-        <div className="swatch-rgb">{props.rgb}</div>
+        <div className="swatch-hex">{hex}</div>
+        <div className="swatch-rgb">{rgb}</div>
       </div>
     </div>
   );
 }
 
 function One() {
+  // const [rangeval, setRangeval] = useState(null);
+
   return(
     <div id="level-one" className="level">
       <div className="swatches">
-        <Swatch rgb="rgb(0, 35, 80)" hex="#0085FF"></Swatch>
-        <Swatch rgb="" hex=""></Swatch>
+        <Swatch r={0} g={35} b={80}></Swatch>
+        <Swatch r={0} g={35} b={80}></Swatch>
+      </div>
+      <div className="sliders">
+        {/* <input className="slider" type="range" min="1" max="255" defaultValue={Math.floor(Math.random()*(256))}
+        onChange={(event) => setRangeval({event.target.value})}></input> */}
+        {/* <input type="range" className="custom-range" min="199" max="3999"
+       onChange={(event) => setRangeval(event.target.value)} />
+      <h4>The range value is {rangeval}</h4> */}
       </div>
     </div>
   );
