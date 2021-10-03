@@ -1,7 +1,6 @@
 import {useState} from 'react';
 import {
-  BrowserRouter as
-  Router,
+  BrowserRouter as Router,
   Switch,
   Route }from 'react-router-dom';
 import Modal from '../components/Modal';
@@ -11,7 +10,6 @@ import Level from './level';
 import '../styles/scrollbar.scss';
 
 function App(): JSX.Element {
-
   const [modalShow, setModalShow] = useState(false);
   // const [myR, setR] = useState(0);
   // const [myG, setG] = useState(0);
@@ -20,15 +18,11 @@ function App(): JSX.Element {
   return (
     <div>
       <Router>
-        {modalShow && <Modal
-          show={setModalShow}
-        ></Modal>}
+        {modalShow && <Modal show={setModalShow}></Modal>}
         <div>
           <Switch>
             <Route exact path="/">
-              <Landing
-                show={setModalShow}
-              ></Landing>
+              <Landing show={setModalShow}></Landing>
             </Route>
             <Route exact path="/ending">
               <Ending></Ending>
@@ -40,8 +34,6 @@ function App(): JSX.Element {
         </div>
       </Router>
     </div>
-
-
   );
 }
 
