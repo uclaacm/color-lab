@@ -1,0 +1,249 @@
+$title-font: 'Fredoka One', sans-serif;
+
+#sliders {
+  padding-top: 2vw;
+  text-align: left;
+  // background-color: red;
+}
+
+.color-label {
+  font-family: $title-font;
+  font-size: calc(13px + 0.5vw);
+  margin-right: 15px;
+  text-transform: lowercase;
+}
+// slider shit
+$height: 25px;
+$thumb-height: 25px;
+$track-height: 15px;
+
+// colors
+$upper-color: #fff;
+$upper-background: linear-gradient(to bottom, $upper-color, $upper-color) 100%
+  50% / 100% $track-height no-repeat transparent;
+
+$lower-color-red: #f00;
+// $thumb-hover-color-red: #ee4444;
+
+$lower-background-red: linear-gradient(to bottom,
+$lower-color-red,
+$lower-color-red)
+  100% 50% / 100% $track-height no-repeat transparent;
+
+$lower-color-blue: #0199ff;
+// $thumb-hover-color-blue: #55c2ff;
+
+$lower-background-blue: linear-gradient(to bottom,
+$lower-color-blue,
+$lower-color-blue)
+  100% 50% / 100% $track-height no-repeat transparent;
+
+$lower-color-green: #20bc20;
+// $thumb-hover-color-green: #3dd63d;
+
+$lower-background-green: linear-gradient(to bottom,
+$lower-color-green,
+$lower-color-green)
+  100% 50% / 100% $track-height no-repeat transparent;
+
+// Webkit cannot style progress so we fake it with a long shadow
+// on the thumb element
+@function webkit-slider-thumb-shadow($i: 1) {
+  $val: #{$i}px 0 0 -#{($thumb-height - $track-height) / 2} #{$upper-color};
+  @if $i == 1 {
+    @for $k from 2 through 1000 {
+      $val: #{$val}, webkit-slider-thumb-shadow($k);
+    }
+  }
+  @return $val;
+}
+
+.e-range {
+  appearance: none;
+  background-color: transparent;
+  cursor: pointer;
+  display: block;
+  height: $height;
+  margin: 0;
+  // border-radius: 20px;
+  margin: 0.5vw 0;
+  overflow: hidden;
+  width: 100%;
+
+  &:focus {
+    outline: none;
+  }
+}
+
+// Webkit
+.e-range::-webkit-slider-runnable-track {
+  height: $height;
+  width: 100%;
+}
+
+#red.e-range::-webkit-slider-runnable-track {
+  background: $lower-background-red;
+}
+
+#blue.e-range::-webkit-slider-runnable-track {
+  background: $lower-background-blue;
+}
+
+#green.e-range::-webkit-slider-runnable-track {
+  background: $lower-background-green;
+}
+
+.e-range::-webkit-slider-thumb {
+  appearance: none;
+  border: 0;
+  border-radius: 100%;
+  box-shadow: webkit-slider-thumb-shadow();
+  height: $thumb-height;
+  margin-top: (-$thumb-height/2);
+  position: relative;
+  top: 50%;
+  transition: background-color 150ms;
+  width: $thumb-height;
+}
+
+#red.e-range::-webkit-slider-thumb {
+  background: $lower-color-red;
+}
+
+#blue.e-range::-webkit-slider-thumb {
+  background: $lower-color-blue;
+}
+
+#green.e-range::-webkit-slider-thumb {
+  background: $lower-color-green;
+}
+
+// Firefox
+.e-range::-moz-range-track,
+.e-range::-moz-range-progress {
+  background: $upper-background;
+  height: $height;
+  width: 100%;
+}
+
+#red.e-range::-moz-range-progress {
+  background: $lower-background-red;
+}
+
+#green.e-range::-moz-range-progress {
+  background: $lower-background-green;
+}
+
+#blue.e-range::-moz-range-progress {
+  background: $lower-background-blue;
+}
+
+.e-range::-moz-range-thumb {
+  appearance: none;
+  border: 0;
+  border-radius: 100%;
+  height: $thumb-height;
+  margin: 0;
+  transition: background-color 150ms;
+  width: $thumb-height;
+}
+
+#red.e-range::-moz-range-thumb {
+  background: $lower-color-red;
+}
+
+#blue.e-range::-moz-range-thumb {
+  background: $lower-color-blue;
+}
+
+#green.e-range::-moz-range-thumb {
+  background: $lower-color-green;
+}
+
+// Internet Exploder
+.e-range::-ms-track {
+  background: transparent;
+  border: 0;
+  // color needed to hide track marks
+  color: transparent;
+  height: $height;
+  width: 100%;
+}
+
+#red.e-range::-ms-fill-lower {
+  background: $lower-background-red;
+}
+
+#green.e-range::-ms-fill-lower {
+  background: $lower-background-green;
+}
+
+#blue.e-range::-ms-fill-lower {
+  background: $lower-background-blue;
+}
+
+.e-range::-ms-fill-upper {
+  background: $upper-background;
+}
+
+.e-range::-ms-thumb {
+  appearance: none;
+  border: 0;
+  border-radius: 100%;
+  box-shadow: none;
+  height: $thumb-height;
+  margin: 0;
+  // IE Edge thinks it can support -webkit prefixes
+  top: 0;
+  transition: background-color 150ms;
+  width: $thumb-height;
+}
+
+#red.e-range::-ms-thumb {
+  background: $lower-color-red;
+}
+
+#blue.e-range::-ms-thumb {
+  background: $lower-color-blue;
+}
+
+#green.e-range::-ms-thumb {
+  background: $lower-color-green;
+}
+
+// .e-range:hover,
+// .e-range:focus {
+//   &::-webkit-slider-thumb {
+//     &#red {
+//       background-color: $thumb-hover-color-red;
+//     }
+//     &#green {
+//       background-color: $thumb-hover-color-green;
+//     }
+//     &#blue {
+//       background-color: $thumb-hover-color-blue;
+//     }
+//   }
+//   &::-moz-range-thumb {
+//     &#red {
+//       background-color: $thumb-hover-color-red;
+//     }
+//     &#green {
+//       background-color: $thumb-hover-color-green;
+//     }
+//     &#blue {
+//       background-color: $thumb-hover-color-blue;
+//     }
+//   }
+//   &::-ms-thumb {
+//     &#red {
+//       background-color: $thumb-hover-color-red;
+//     }
+//     &#green {
+//       background-color: $thumb-hover-color-green;
+//     }
+//     &#blue {
+//       background-color: $thumb-hover-color-blue;
+//     }
+//   }
+// }

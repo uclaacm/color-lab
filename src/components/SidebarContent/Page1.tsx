@@ -21,11 +21,6 @@ export default function Page1():JSX.Element {
           blue={blue}
           setBlue={setBlue}
         />
-        {/* <input className="slider" type="range" min="1" max="255" defaultValue={Math.floor(Math.random()*(256))}
-          onChange={(event) => setRangeval({event.target.value})}></input> */}
-        {/* <input type="range" className="custom-range" min="199" max="3999"
-         onChange={(event) => setRangeval(event.target.value)} />
-        <h4>The range value is {rangeval}</h4> */}
       </div>
     </div>
   );

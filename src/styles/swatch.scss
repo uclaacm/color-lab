@@ -1,13 +1,17 @@
 @import 'global';
 
 .swatch {
+  align-items: center;
   background-color: white;
   border-radius: 7px;
   color: #8c8c8c;
+  display: flex;
+  flex-flow: column wrap;
   // font-family: 'Roboto';
   font-size: calc(7px + 0.5vw);
   line-height: 1.75em;
   padding: 1vw 1.5vw;
+  width: 7.5vw;
 }
 
 .swatch-color {
@@ -15,7 +19,7 @@
   border-radius: 50%;
   height: 6vw;
   margin-bottom: 0.75vw;
+  width: 6vw;
   // margin: 0 auto;
   // padding: 1vw;
-
 }

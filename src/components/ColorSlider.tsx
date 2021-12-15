@@ -1,4 +1,5 @@
 import React from 'react';
+import '../styles/slider.scss';
 
 interface ColorSliderProps {
   setRed: React.Dispatch<React.SetStateAction<number>>;
@@ -9,65 +10,51 @@ interface ColorSliderProps {
   blue: number;
 }
 export default function ColorSlider(props: ColorSliderProps):JSX.Element {
+  // let css = '';
   return (
-    <div>
-      <div>Red:</div>
-      <input
-        type="number"
-        value={props.red}
-        min={0}
-        max={255}
-        onChange={(event) => props.setRed(parseInt(event.target.value))}
-      />
+    <div id="sliders">
       <div>
+        <span className="color-label">Red</span> <span className="color-number">{props.red}</span>
         <input
+          id="red"
+          className="e-range"
           type="range"
           min={0}
           max={255}
           step={1}
           value={props.red}
-          onChange={(event) => props.setRed(parseInt(event.target.value))}
+          onChange={(event) => {
+            props.setRed(parseInt(event.target.value));
+          }}
         />
       </div>
 
       <div>
-        Green:
+        <span className="color-label">Green</span> <span className="color-number">{props.green}</span>
         <input
-          type="number"
+          id="green"
+          className="e-range"
+          type="range"
+          min={0}
+          max={255}
+          step={1}
           value={props.green}
           onChange={(event) => props.setGreen(parseInt(event.target.value))}
-          min={0}
-          max={255}
         />
       </div>
-      <input
-        type="range"
-        min={0}
-        max={255}
-        step={1}
-        value={props.green}
-        onChange={(event) => props.setGreen(parseInt(event.target.value))}
-      />
-
       <div>
-        Blue:
+        <span className="color-label">Blue</span> <span className="color-number">{props.blue}</span>
         <input
-          type="number"
+          id="blue"
+          className="e-range"
+          type="range"
+          min={0}
+          max={255}
+          step={1}
           value={props.blue}
           onChange={(event) => props.setBlue(parseInt(event.target.value))}
-          min={0}
-          max={255}
         />
       </div>
-
-      <input
-        type="range"
-        min={0}
-        max={255}
-        step={1}
-        value={props.blue}
-        onChange={(event) => props.setBlue(parseInt(event.target.value))}
-      />
     </div>
   );
 }

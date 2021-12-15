@@ -35,4 +35,9 @@ h1 {
 .swatches {
   display: flex;
   gap: 2vw;
+  justify-content: center;
+}
+
+.level-content {
+  width: 100%;
 }
