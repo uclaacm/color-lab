@@ -14,8 +14,14 @@ $title-font: 'Fredoka One', sans-serif;
   // font-family: 'Roboto';
   font-size: calc(7px + 0.5vw);
   line-height: 1.75em;
+  min-width: 7.5vw;
   padding: 1vw 1.5vw;
-  width: 7.5vw;
+  width: fit-content;
+}
+
+#level-ten .swatch {
+  min-width: inherit;
+  width: fit-content;
 }
 
 .swatch-color {

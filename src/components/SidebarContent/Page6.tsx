@@ -1,4 +1,3 @@
-import Select from '../Select';
 import {Swatch} from '../Swatch';
 
 export default function Page6():JSX.Element {
@@ -8,7 +7,11 @@ export default function Page6():JSX.Element {
       <div className='swatches single'>
         <Swatch r={0} g={255} b={255} mystery={true} showRGB={false}></Swatch>
       </div>
-      <Select></Select>
+      <div className='colors'>
+        <div className='single-color' style={{backgroundColor: 'red'}}></div>
+        <div className='single-color' style={{backgroundColor: 'green'}}></div>
+        <div className='single-color' style={{backgroundColor: 'blue'}}></div>
+      </div>
     </div>
   );
 }

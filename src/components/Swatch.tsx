@@ -10,11 +10,13 @@ interface SwatchProps{
   b:number;
   showRGB?: boolean;
   mystery?: boolean;
+  binary?: boolean;
 }
 
 Swatch.defaultProps = {
   showRGB: true,
   mystery: false,
+  binary: false,
 };
 
 export function Swatch(props: SwatchProps):JSX.Element {
@@ -28,8 +30,11 @@ export function Swatch(props: SwatchProps):JSX.Element {
           <div className="swatch-color" style={{ backgroundColor: rgb}}></div>
       }
       <div className="swatch-labels">
-        <div className="swatch-hex">{hex}</div>
-        {props.showRGB && <div className="swatch-rgb">{rgb}</div>}
+        {!props.binary && <div className="swatch-hex">{hex}</div>}
+        {(props.showRGB && !props.binary) && <div className="swatch-rgb">{rgb}</div>}
+        {props.binary && <div className="swatch-bin">R: {('00000000'+(props.r).toString(2)).slice(-8)}</div>}
+        {props.binary && <div className="swatch-bin">G: {('00000000'+(props.g).toString(2)).slice(-8)}</div>}
+        {props.binary && <div className="swatch-bin">B: {('00000000'+(props.b).toString(2)).slice(-8)}</div>}
       </div>
     </div>
   );

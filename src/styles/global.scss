@@ -38,6 +38,10 @@ h1 {
   justify-content: center;
 }
 
+#level-ten .swatches {
+  gap: 1vw;
+}
+
 .level-content {
   width: 100%;
 }
@@ -45,4 +49,38 @@ h1 {
 // Other levels
 .title2 {
   font-size: calc(15px + 0.75vw);
+}
+
+.input {
+  border: 0;
+  border-radius: 5px;
+  font-family: $title-font;
+  font-size: calc(15px + 0.75vw);
+  margin: 10px 0;
+  margin: 0 0.5vw;
+  padding: 0.25vw;
+}
+
+#level-eight .input {
+  text-align: center;
+  width: 4.5vw;
+}
+
+.input-container {
+  font-family: $title-font;
+  font-size: calc(15px + 0.75vw);
+}
+
+.colors {
+  display: flex;
+  flex-flow: row wrap;
+  gap: 1vw;
+  justify-content: center;
+  margin-bottom: 2vw;
+}
+
+.single-color {
+  border-radius: 50%;
+  height: 6vw;
+  width: 6vw;
 }
