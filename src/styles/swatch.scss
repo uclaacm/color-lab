@@ -1,7 +1,11 @@
 @import 'global';
+@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap');
+
+$title-font: 'Fredoka One', sans-serif;
 
 .swatch {
   align-items: center;
+  // justify-content: center;
   background-color: white;
   border-radius: 7px;
   color: #8c8c8c;
@@ -15,11 +19,25 @@
 }
 
 .swatch-color {
-  // width: 100%;
   border-radius: 50%;
   height: 6vw;
   margin-bottom: 0.75vw;
   width: 6vw;
-  // margin: 0 auto;
-  // padding: 1vw;
+}
+
+.swatch-hex {
+  text-transform: uppercase;
+}
+
+.swatch-mystery {
+  color: #fe7d9b;
+  font-family: $title-font;
+  font-size: calc(10px + 5vw);
+  height: 6.75vw;
+  // margin-bottom: 20%;
+  line-height: normal;
+}
+
+.single {
+  margin: 2vw 0;
 }
