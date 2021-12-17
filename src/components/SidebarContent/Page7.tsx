@@ -2,10 +2,8 @@ import Select from '../Select';
 import {Swatch} from '../Swatch';
 
 const choices: {[k: string]: string} = {red: '#FF0000', green: '#00FF00', blue: '#0000FF', magenta: '#FF00FF', cyan: '#00FFFF', yellow: '#FFFF00'};
-
 const colorsArray  = Object.keys(choices);
 const correctColor = colorsArray[Math.floor(Math.random() * colorsArray.length)];
-
 const correctHex  = choices[correctColor];
 
 export default function Page7(props:{

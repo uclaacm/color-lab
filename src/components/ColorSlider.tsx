@@ -17,11 +17,9 @@ export default function ColorSlider(props: ColorSliderProps):JSX.Element {
   // let css = '';
   const check = (r:number, g:number, b:number) => {
     if(r == props.correctRed && g == props.correctGreen && b == props.correctBlue) {
-      // console.log("true")
       props.setEnabled(true);
     }
     else {
-      // console.log("false")
       props.setEnabled(false);
     }
   };

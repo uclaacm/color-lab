@@ -11,11 +11,13 @@ $mono-font: 'DM Mono', -apple-system, 'Helvetica Neue', serif;
   color: black;
   font-family: $mono-font;
   font-size: calc(10px + 0.75vw);
+  line-height: 3.5em;
   margin: 3vw 0;
-  padding: 2vw 1vw;
+  padding: 2vw 1vw 1em;
 }
 
 .binary-section {
+  line-height: normal;
   margin: 0 0.5vw;
 }
 

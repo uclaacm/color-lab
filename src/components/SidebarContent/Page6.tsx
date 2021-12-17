@@ -1,12 +1,21 @@
 import {Swatch} from '../Swatch';
 
+const choiceDict: {[k: string]: string} = {red: '#FF0000', green: '#00FF00', blue: '#0000FF', magenta: '#FF00FF', cyan: '#00FFFF', yellow: '#FFFF00'};
+const choices = Object.values(choiceDict);
+const shuffledChoices: string[] =[];
+while(shuffledChoices.length < 3) {
+  const chosen = choices[Math.floor(Math.random() *(choices.length))];
+  if (!shuffledChoices.includes(chosen)) {
+    shuffledChoices.push(chosen);
+  }
+}
+const correctAnswer = shuffledChoices[Math.floor(Math.random() *(shuffledChoices.length))];
+
+
 export default function Page6(props:{
   setEnabled: (arg0: boolean)=> void,
   hexToRGB: (arg0: string) =>  {[k: string]: number},
-  threeChoices: () => string[]
 }):JSX.Element {
-  const shuffledChoices:string[] = props.threeChoices();
-  const correctAnswer = shuffledChoices[Math.floor(Math.random() *(shuffledChoices.length))];
 
   return(
     <div id="level-six" className="level">

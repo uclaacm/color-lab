@@ -29,20 +29,6 @@ export function Sidebar():JSX.Element {
     };
   }
 
-  const choiceDict: {[k: string]: string} = {red: '#FF0000', green: '#00FF00', blue: '#0000FF', magenta: '#FF00FF', cyan: '#00FFFF', yellow: '#FFFF00'};
-
-  function threeChoices() {
-    const choices = Object.values(choiceDict);
-    const shuffledChoices: string[] =[];
-    while(shuffledChoices.length < 3) {
-      const chosen = choices[Math.floor(Math.random() *(choices.length))];
-      if (!shuffledChoices.includes(chosen)) {
-        shuffledChoices.push(chosen);
-      }
-    }
-    return shuffledChoices;
-  }
-
   const [enabled, setEnabled] = useState(false);
 
   const content = [
@@ -51,7 +37,7 @@ export function Sidebar():JSX.Element {
     <Page3 setEnabled={setEnabled} key="3"></Page3>,
     <Page4 setEnabled={setEnabled} key="4"></Page4>,
     <Page5 setEnabled={setEnabled} hexToRGB={hexToRgb} key="5"></Page5>,
-    <Page6 setEnabled={setEnabled} hexToRGB={hexToRgb} threeChoices={threeChoices} key="6"></Page6>,
+    <Page6 setEnabled={setEnabled} hexToRGB={hexToRgb} key="6"></Page6>,
     <Page7 setEnabled={setEnabled} hexToRGB={hexToRgb} key="7"></Page7>,
     <Page8 setEnabled={setEnabled}  hexToRGB={hexToRgb} key="8"></Page8>,
     <Page9 setEnabled={setEnabled} key="9"></Page9>,
