@@ -1,6 +1,7 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import {Binary} from '../Binary';
 
-export default function Page9():JSX.Element {
+export default function Page9(props:{setEnabled: (arg0: boolean)=> void}):JSX.Element {
   return(
     <div id="level-nine" className="level">
       <div className="title2">Convert the binary number to an RGB code.</div>

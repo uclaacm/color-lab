@@ -1,7 +1,8 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import {Binary} from '../Binary';
 import {Swatch} from '../Swatch';
 
-export default function Page10():JSX.Element {
+export default function Page10(props:{setEnabled: (arg0: boolean)=> void}):JSX.Element {
   return(
     <div id="level-ten" className="level">
       <div className="title2">What color is this?</div>

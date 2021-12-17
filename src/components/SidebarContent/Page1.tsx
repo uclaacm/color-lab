@@ -1,7 +1,13 @@
 import { useState } from 'react';
 import ColorSlider from '../ColorSlider';
 import {Swatch} from '../Swatch';
-export default function Page1():JSX.Element {
+
+const correctRed = Math.floor(Math.random() * (256));
+const correctGreen = Math.floor(Math.random() * (256));
+const correctBlue = Math.floor(Math.random() * (256));
+
+
+export default function Page1(props:{setEnabled: (arg0: boolean)=> void}):JSX.Element {
   const [red, setRed] = useState(0);
   const [blue, setBlue] = useState(0);
   const [green, setGreen] = useState(0);
@@ -9,7 +15,7 @@ export default function Page1():JSX.Element {
   return(
     <div id="level-one" className="level">
       <div className="swatches">
-        <Swatch r={0} g={35} b={80}></Swatch>
+        <Swatch r={correctRed} g={correctGreen} b={correctBlue}></Swatch>
         <Swatch r={red} g={green} b={blue}></Swatch>
       </div>
       <div className="sliders">
@@ -20,6 +26,10 @@ export default function Page1():JSX.Element {
           setGreen={setGreen}
           blue={blue}
           setBlue={setBlue}
+          setEnabled={props.setEnabled}
+          correctRed={correctRed}
+          correctGreen={correctGreen}
+          correctBlue={correctBlue}
         />
       </div>
     </div>

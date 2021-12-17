@@ -30,8 +30,7 @@
   margin-top: 0.75vw;
 }
 
-.next {
-  background-color: white;
+#next {
   border-radius: 3vw;
   color: black;
   font-family: $title-font;
@@ -40,4 +39,13 @@
   padding: 0.6vw 2vw;
   text-decoration: none;
   width: fit-content;
+}
+
+#next.disabled {
+  background-color: rgba(255, 255, 255, 0.5);
+  pointer-events: none;
+}
+
+#next.enabled {
+  background-color: white;
 }

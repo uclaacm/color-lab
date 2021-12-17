@@ -58,13 +58,20 @@ const colourStyles: StylesConfig<ColourOption> = {
   }),
 };
 
-export default function Swatch():JSX.Element {
+export default function Selector(props:{setEnabled: (arg0: boolean)=> void, correctColor: string}):JSX.Element {
+  const onChange = (option: any) => {
+    // console.log(option)
+    if(option.value == props.correctColor) {
+      props.setEnabled(true);
+    }
+  };
   return(
     <Select
-      defaultValue={colourOptions[2]}
+      defaultValue={{ value: 'default', label: 'Choose a color', color: '#000000'}}
       options={colourOptions}
       styles={colourStyles}
       menuPlacement="top"
+      onChange={onChange}
     />
   );
 }

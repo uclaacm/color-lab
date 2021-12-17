@@ -1,16 +1,31 @@
 import {Swatch} from '../Swatch';
 
-export default function Page6():JSX.Element {
+export default function Page6(props:{
+  setEnabled: (arg0: boolean)=> void,
+  hexToRGB: (arg0: string) =>  {[k: string]: number},
+  threeChoices: () => string[]
+}):JSX.Element {
+  const shuffledChoices:string[] = props.threeChoices();
+  const correctAnswer = shuffledChoices[Math.floor(Math.random() *(shuffledChoices.length))];
+
   return(
     <div id="level-six" className="level">
       <div className="title2">What color is this?</div>
       <div className='swatches single'>
-        <Swatch r={0} g={255} b={255} mystery={true} showRGB={false}></Swatch>
+        <Swatch
+          r={props.hexToRGB(correctAnswer).r}
+          g={props.hexToRGB(correctAnswer).g}
+          b={props.hexToRGB(correctAnswer).b}
+          mystery={true}
+          showRGB={false}
+        ></Swatch>
       </div>
       <div className='colors'>
-        <div className='single-color' style={{backgroundColor: 'red'}}></div>
-        <div className='single-color' style={{backgroundColor: 'green'}}></div>
-        <div className='single-color' style={{backgroundColor: 'blue'}}></div>
+        {shuffledChoices.map((choice) => {
+          return <div key={choice} className='single-color' style={{backgroundColor: choice}} onClick={()=> {
+            if(choice == correctAnswer) props.setEnabled(true);
+          }}></div>;
+        })}
       </div>
     </div>
   );

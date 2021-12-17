@@ -8,9 +8,23 @@ interface ColorSliderProps {
   green: number;
   setBlue: React.Dispatch<React.SetStateAction<number>>;
   blue: number;
+  setEnabled: (arg0: boolean)=> void,
+  correctRed: number,
+  correctGreen: number,
+  correctBlue:number,
 }
 export default function ColorSlider(props: ColorSliderProps):JSX.Element {
   // let css = '';
+  const check = (r:number, g:number, b:number) => {
+    if(r == props.correctRed && g == props.correctGreen && b == props.correctBlue) {
+      // console.log("true")
+      props.setEnabled(true);
+    }
+    else {
+      // console.log("false")
+      props.setEnabled(false);
+    }
+  };
   return (
     <div id="sliders">
       <div>
@@ -25,6 +39,7 @@ export default function ColorSlider(props: ColorSliderProps):JSX.Element {
           value={props.red}
           onChange={(event) => {
             props.setRed(parseInt(event.target.value));
+            check(parseInt(event.target.value), props.green, props.blue);
           }}
         />
       </div>
@@ -39,7 +54,10 @@ export default function ColorSlider(props: ColorSliderProps):JSX.Element {
           max={255}
           step={1}
           value={props.green}
-          onChange={(event) => props.setGreen(parseInt(event.target.value))}
+          onChange={(event) => {
+            props.setGreen(parseInt(event.target.value));
+            check(props.red, parseInt(event.target.value), props.blue);
+          }}
         />
       </div>
       <div>
@@ -52,7 +70,10 @@ export default function ColorSlider(props: ColorSliderProps):JSX.Element {
           max={255}
           step={1}
           value={props.blue}
-          onChange={(event) => props.setBlue(parseInt(event.target.value))}
+          onChange={(event) => {
+            props.setBlue(parseInt(event.target.value));
+            check(props.red, props.green, parseInt(event.target.value));
+          }}
         />
       </div>
     </div>
