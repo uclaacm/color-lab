@@ -27,8 +27,48 @@ h1 {
   min-height: 100vh;
 }
 
-.image {
-  background-image: url('../assets/background.png');
+@media (max-width: 1000px) {
+  .frame {
+    display: inherit;
+  }
+
+  .swatches {
+    margin-top: 2vw;
+  }
+
+  #next {
+    margin-top: 2vw;
+  }
+
+  div.svg-container {
+    background-color: red;
+    display: inline-block;
+    overflow: hidden;
+    padding-bottom: 100vh;
+    padding-right: 99vw;
+    position: relative;
+    vertical-align: middle;
+  }
+}
+
+.svg-container {
+  background-color: red;
+  display: inline-block;
+  overflow: hidden;
+  padding-bottom: 100vh;
+  padding-right: 68vw;
+  position: relative;
+  vertical-align: middle;
+}
+
+.svg-content {
+  display: block;
+  display: inline-block;
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
 }
 
 // Swatches

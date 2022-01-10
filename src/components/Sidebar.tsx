@@ -3,8 +3,11 @@ import { useState } from 'react';
 import { useLocation, Link }from 'react-router-dom';
 import {Page1,Page2,Page3,Page4,Page5,Page6,Page7,Page8,Page9,Page10} from './SidebarContent/index.js';
 
-export function Sidebar():JSX.Element {
-  const pages = ['/','/level1','/level2','/level3','/level4','/level5','/level6','/level7','/level8', '/level9', '/level10', '/ending'];
+export function Sidebar(props: {
+  setFills: React.Dispatch<React.SetStateAction<string[]>>,
+  updatePage: (back: boolean)=>void,
+  pages: string[]
+}):JSX.Element {
   const titles = [
     'match the color',
     'match another one',
@@ -46,22 +49,31 @@ export function Sidebar():JSX.Element {
 
   const location = useLocation();
   const current = location.pathname;
-  const currPage = pages.indexOf(current);
+  const currPage = props.pages.indexOf(current);
 
   return(
     <div className="sidebar">
       <div className="sidebar-header">
         <div className="sidebar-title">{titles[currPage-1]}</div>
         <div className="level-select">
-          {currPage !== 1 && <Link to={pages[currPage-1]} className="level-select-button">&#9664;</Link>}
-          level {pages.indexOf(current)} of {pages.length-2}
-          {currPage !== 10 && <Link to={pages[currPage+1]} className="level-select-button">&#9654;</Link>}
+          {currPage !== 1 && <Link to={props.pages[currPage-1]} className="level-select-button" onClick={() => {props.updatePage(true);}}>&#9664;</Link>}
+          level {props.pages.indexOf(current)} of {props.pages.length-2}
+          {currPage !== 10 && <Link to={props.pages[currPage+1]} className="level-select-button" onClick={() => {props.updatePage(false);}}>&#9654;</Link>}
         </div>
       </div>
       <div className="level-content">
         {content[currPage-1]}
       </div>
-      <Link className={enabled ? 'enabled' : 'disabled'} to={pages[currPage+1]} id="next" onClick={() => setEnabled(false)}>next</Link>
+      <Link
+        className={enabled ? 'enabled' : 'disabled'}
+        to={props.pages[currPage+1]} id="next" onClick={() => {
+          setEnabled(false);
+          // let fillCopy = [...props.fills]
+          // fillCopy[currPage-1] = colors[currPage-1]
+          // console.log(currPage, fillCopy)
+          // props.setFills(fillCopy)
+          props.updatePage(false);
+        }}>next</Link>
     </div>
   );
 }
