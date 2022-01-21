@@ -58,6 +58,19 @@ $lower-color-green)
   @return $val;
 }
 
+.color-arrow {
+  font-size: smaller;
+  margin: 0 3px;
+}
+
+.color-arrow:hover {
+  cursor: pointer;
+}
+
+.color-number {
+  margin-right: 15px;
+}
+
 .e-range {
   appearance: none;
   background-color: transparent;

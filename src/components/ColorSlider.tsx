@@ -27,6 +27,8 @@ export default function ColorSlider(props: ColorSliderProps):JSX.Element {
     <div id="sliders">
       <div>
         <span className="color-label">Red</span> <span className="color-number">{props.red}</span>
+        <span className="color-arrow" onClick={() => {if (props.red > 0 && props.red <=255) props.setRed(props.red - 1);}}>◀</span>
+        <span className="color-arrow" onClick={() => { if (props.red >= 0 && props.red <255)props.setRed(props.red + 1);}}>▶</span>
         <input
           id="red"
           className="e-range"
@@ -44,6 +46,8 @@ export default function ColorSlider(props: ColorSliderProps):JSX.Element {
 
       <div>
         <span className="color-label">Green</span> <span className="color-number">{props.green}</span>
+        <span className="color-arrow" onClick={() => {if (props.green > 0 && props.green <=255) props.setGreen(props.green - 1);}}>◀</span>
+        <span className="color-arrow" onClick={() => { if (props.green >= 0 && props.green <255)props.setGreen(props.green + 1);}}>▶</span>
         <input
           id="green"
           className="e-range"
@@ -60,6 +64,8 @@ export default function ColorSlider(props: ColorSliderProps):JSX.Element {
       </div>
       <div>
         <span className="color-label">Blue</span> <span className="color-number">{props.blue}</span>
+        <span className="color-arrow" onClick={() => {if (props.blue > 0 && props.blue <=255) props.setBlue(props.blue - 1);}}>◀</span>
+        <span className="color-arrow" onClick={() => { if (props.blue >= 0 && props.blue <255)props.setBlue(props.blue + 1);}}>▶</span>
         <input
           id="blue"
           className="e-range"
