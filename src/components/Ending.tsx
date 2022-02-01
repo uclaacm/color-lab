@@ -1,5 +1,5 @@
 import { Link }from 'react-router-dom';
-import ColoringPage from '../assets/background.png';
+import ColoringPage from '../assets/finished.svg';
 import '../styles/ending.scss';
 export default function Ending():JSX.Element {
   return(

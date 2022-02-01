@@ -6,7 +6,7 @@
   padding: 0 10px;
   text-decoration: none;
 }
-  
+
 .sidebar {
   align-items: center;
   background-image: url('../assets/sidebar_bg.png');
@@ -19,25 +19,33 @@
   padding: 3vw;
   text-align: center;
 }
-  
+
 .sidebar-title {
   font-family: $title-font;
   font-size: calc(18px + 1vw);
 }
-  
+
 .level-select {
   font-size: calc(5px + 0.5vw);
   margin-top: 0.75vw;
 }
-  
-.next {
-  background-color: white;
+
+#next {
   border-radius: 3vw;
   color: black;
   font-family: $title-font;
   font-size: calc(10px + 0.5vw);
   mix-blend-mode: screen;
-  padding: 0.4vw 2vw;
+  padding: 0.6vw 2vw;
   text-decoration: none;
   width: fit-content;
+}
+
+#next.disabled {
+  background-color: rgba(255, 255, 255, 0.5);
+  pointer-events: none;
+}
+
+#next.enabled {
+  background-color: white;
 }

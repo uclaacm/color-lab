@@ -27,12 +27,108 @@ h1 {
   min-height: 100vh;
 }
 
-.image {
-  background-image: url('../assets/background.png');
+@media (max-width: 1000px) {
+  .frame {
+    display: inherit;
+  }
+
+  .swatches {
+    margin-top: 2vw;
+  }
+
+  #next {
+    margin-top: 2vw;
+  }
+
+  div.svg-container {
+    background-color: red;
+    display: inline-block;
+    overflow: hidden;
+    padding-bottom: 100vh;
+    padding-right: 99vw;
+    position: relative;
+    vertical-align: middle;
+  }
+}
+
+.svg-container {
+  background-color: red;
+  display: inline-block;
+  overflow: hidden;
+  padding-bottom: 100vh;
+  padding-right: 68vw;
+  position: relative;
+  vertical-align: middle;
+}
+
+.svg-content {
+  display: block;
+  display: inline-block;
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
 }
 
 // Swatches
 .swatches {
   display: flex;
   gap: 2vw;
+  justify-content: center;
+}
+
+#level-ten .swatches {
+  gap: 1vw;
+}
+
+.level-content {
+  width: 100%;
+}
+
+// Other levels
+.title2 {
+  font-size: calc(15px + 0.75vw);
+}
+
+.input {
+  border: 0;
+  border-radius: 5px;
+  font-family: $title-font;
+  font-size: calc(15px + 0.75vw);
+  margin: 10px 0;
+  margin: 0 0.5vw;
+  padding: 0.25vw;
+}
+
+#level-eight .input {
+  text-align: center;
+  width: 4.5vw;
+}
+
+.input-container {
+  font-family: $title-font;
+  font-size: calc(15px + 0.75vw);
+}
+
+.colors {
+  display: flex;
+  flex-flow: row wrap;
+  gap: 1vw;
+  justify-content: center;
+  margin-bottom: 2vw;
+}
+
+.single-color {
+  border-radius: 50%;
+  height: 6vw;
+  width: 6vw;
+}
+
+.single-color:hover {
+  cursor: pointer;
+}
+
+.swatch-choose:hover {
+  cursor: pointer;
 }
